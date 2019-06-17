@@ -6,7 +6,7 @@ class Carousel {
 }
 document
   .querySelector(".left-button")
-  .addEventListener("click", function left() {
+  .addEventListener("click", ()=>{
     let e = carousel.querySelector(".show").dataset.order;
     //console.log(e);
     carouselImages.forEach(image => image.classList.remove("show"));
@@ -20,7 +20,7 @@ document
   });
 document
   .querySelector(".right-button")
-  .addEventListener("click", function right() {
+  .addEventListener("click",()=> {
     let e = Number(carousel.querySelector(".show").dataset.order);
     carouselImages.forEach(image => image.classList.remove("show"));
     let select = e+1;
