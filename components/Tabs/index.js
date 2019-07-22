@@ -7,7 +7,23 @@
 //
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
+axios
+  .get("https://lambda-times-backend.herokuapp.com/topics")
+  .then(data => {
+    console.log(data.data.topics);
+    data.data.topics.forEach(topic => newTab(topic));
+  })
+  .catch(err => {
+    console.log(err);
+  });
 
+function newTab(newTopic) {
+ var topics=document.querySelector(".topics");
+ var topic=document.createElement("div");
+ topic.classList.add("tab");
+ topics.appendChild(topic);
+ topic.textContent=`${newTopic}`;
+}
 
 //================================================================================================
 //Reference:Code from Previous Version of Sprint:
@@ -71,7 +87,7 @@
 //   }
 // }
 
-// /* START HERE: 
+// /* START HERE:
 
 // - Select all classes named ".tab" and assign that value to the tabs variable
 
