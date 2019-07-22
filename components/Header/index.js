@@ -27,9 +27,3 @@ temp.textContent ="98°";
 header.appendChild(temp);
 }
 Header();
-
-
-//Notes from Previous html header section:
-/* < span class="date" > MARCH 28, 2018</span >
-  <h1>Lambda Times</h1>
-  <span class="temp">98°</span> */

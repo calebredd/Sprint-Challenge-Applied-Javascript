@@ -12,22 +12,24 @@ axios
   .get("https://lambda-times-backend.herokuapp.com/articles")
   .then(data => {
     console.log(data.data.articles);
-    const keys=Object.keys(data.data.articles);
-    keys.forEach(topic =>
+    const keys = Object.keys(data.data.articles);
+    keys.forEach(topic =>{
+      let category=topic;
       data.data.articles[`${topic}`].forEach(article => {
         // console.log(article);
-        newArticle(article);
-      })
+        newArticle(article,category);
+      })}
     );
   })
   .catch(err => {
     console.log(err);
   });
 
-function newArticle(newArticle) {
+function newArticle(newArticle,category) {
   var articles = document.querySelector(".cards-container");
   var article = document.createElement("div");
   article.classList.add("card");
+  article.dataset["tab"] = `${category}`;
   articles.appendChild(article);
   var title = document.createElement("div");
   title.classList.add("headline");
